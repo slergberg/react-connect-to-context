@@ -1,14 +1,6 @@
-import PropTypes from 'prop-types'
-import React, { memo, useContext } from 'react'
+import React, { useContext } from 'react'
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const ConnectedComponent = ({ Component, ...props }) => <Component {...props} />
-
-ConnectedComponent.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-}
-
-const MemoizedComponent = memo(ConnectedComponent)
+import ConnectedComponent from './ConnectedComponent'
 
 const connectToContextStore = (Context, mapContextToProps) => (Component) =>
   function ContextStoreConnection(props) {
@@ -17,7 +9,7 @@ const connectToContextStore = (Context, mapContextToProps) => (Component) =>
 
     return (
       // eslint-disable-next-line react/jsx-props-no-spreading
-      <MemoizedComponent Component={Component} {...contextProps} {...props} />
+      <ConnectedComponent Component={Component} {...contextProps} {...props} />
     )
   }
 
