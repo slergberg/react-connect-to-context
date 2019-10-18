@@ -4,4 +4,4 @@
 [![coverage](https://coveralls.io/repos/github/slergberg/react-context-store/badge.svg?branch=master)](https://coveralls.io/github/slergberg/react-context-store?branch=master)
 [![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Highly opinionated context-based state management for React.
+Highly opinionated and simple context-based state management for React.
