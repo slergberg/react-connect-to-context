@@ -1,7 +1,7 @@
 {
   "name": "@slergberg/react-context-store",
   "version": "0.3.1",
-  "description": "Highly opinionated context-based state management for React",
+  "description": "Highly opinionated and simple context-based state management for React",
   "keywords": [
     "context",
     "hooks",
@@ -15,7 +15,6 @@
   "repository": "github:slergberg/react-context-store",
   "bugs": "https://github.com/slergberg/react-context-store/issues",
   "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
   "unpkg": "dist/react-context-store.js",
   "module": "es/index.js",
   "files": [
