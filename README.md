@@ -9,7 +9,7 @@ Highly opinionated and simple context-based state management for React.
 ## Installation
 
 ```JavaScript
-npm install --save react-context-store
+npm install --save @slergberg/react-context-store
 ```
 
 This assumes that you’re using npm package manager with a module bundler like
