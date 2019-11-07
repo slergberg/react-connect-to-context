@@ -1,6 +1,6 @@
 {
   "name": "@slergberg/react-context-store",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Highly opinionated and simple context-based state management for React",
   "keywords": [
     "context",
