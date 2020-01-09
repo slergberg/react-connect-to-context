@@ -1,6 +1,6 @@
 {
   "name": "@slergberg/react-context-store",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "description": "Highly opinionated and simple context-based state management for React",
   "keywords": [
     "context",
@@ -72,7 +72,7 @@
     "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min",
     "clean": "rimraf lib dist es coverage",
     "lint": "eslint src test",
-    "prepare": "npm run clean",
+    "prepare": "npm run clean && npm run build",
     "pretest": "npm run lint",
     "test": "jest"
   },
