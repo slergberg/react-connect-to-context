@@ -1,4 +1,2 @@
-import ContextStoreProvider from './ContextStoreProvider'
-import connectToContextStore from './connectToContextStore'
-
-export { ContextStoreProvider, connectToContextStore }
+export { default as ContextStoreProvider } from './ContextStoreProvider'
+export { default as connectToContextStore } from './connectToContextStore'

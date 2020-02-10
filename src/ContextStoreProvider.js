@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const ContextStoreProvider = (props) => {
+export default function ContextStoreProvider(props) {
   const { Context, children, store } = props
 
   return <Context.Provider value={store}>{children}</Context.Provider>
@@ -19,5 +19,3 @@ ContextStoreProvider.propTypes = {
 ContextStoreProvider.defaultProps = {
   children: null,
 }
-
-export default ContextStoreProvider
