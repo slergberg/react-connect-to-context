@@ -1,6 +1,6 @@
 {
   "name": "@slergberg/react-hoc-connect-to-context",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Highly opinionated and simple context connection Higher-Order Component for React",
   "keywords": [
     "context",
