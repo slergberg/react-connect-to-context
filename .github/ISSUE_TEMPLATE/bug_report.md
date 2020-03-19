@@ -15,8 +15,8 @@ A clear and concise description of what the bug is.
 Steps to reproduce the behavior:
 
 1. Create a component '...'
-2. Add the context store '...'
-3. Change the context value '....'
+2. Add a context provider '...'
+3. Change a context value '....'
 4. See error
 
 **Expected behavior**

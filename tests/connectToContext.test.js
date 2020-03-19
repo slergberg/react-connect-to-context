@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import React, { createContext } from 'react'
 import { mount } from 'enzyme'
 
-import ConnectedComponent from '../src/ConnectedComponent'
-import { connectToContextStore } from '../src'
+import ContextConnectedComponent from '../src/ContextConnectedComponent'
+import { connectToContext } from '../src'
 
-const testStore = { foo: 'bar' }
+const testContextValue = { foo: 'bar' }
 
-const TestContext = createContext(testStore)
+const TestContext = createContext(testContextValue)
 const TestContextProvider = TestContext.Provider
 
 function TestComponent({ foo }) {
@@ -24,7 +24,7 @@ function mapTestContextToProps(context) {
   }
 }
 
-const ConnectedTestComponent = connectToContextStore(
+const ConnectedTestComponent = connectToContext(
   TestContext,
   mapTestContextToProps,
 )(TestComponent)
@@ -41,14 +41,14 @@ TestContainer.propTypes = {
   value: PropTypes.objectOf(PropTypes.any).isRequired,
 }
 
-describe('connectToContextStore', () => {
+describe('connectToContext', () => {
   it('should map context values to props and memoize component', () => {
-    const connectedComponent = (
-      <ConnectedComponent Component={TestComponent} foo="bar" />
+    const contextConnectedComponent = (
+      <ContextConnectedComponent Component={TestComponent} foo="bar" />
     )
 
-    const wrapper = mount(<TestContainer value={testStore} />)
-    expect(wrapper.contains(connectedComponent)).toEqual(true)
+    const wrapper = mount(<TestContainer value={testContextValue} />)
+    expect(wrapper.contains(contextConnectedComponent)).toEqual(true)
 
     const divComponent = <div>bar</div>
 
@@ -58,7 +58,7 @@ describe('connectToContextStore', () => {
   })
 
   it('should update component when context values change', () => {
-    const wrapper = mount(<TestContainer value={testStore} />)
+    const wrapper = mount(<TestContainer value={testContextValue} />)
     wrapper.setProps({ value: { foo: 'foo' } })
 
     const testComponentWrapper = wrapper.find(TestComponent)

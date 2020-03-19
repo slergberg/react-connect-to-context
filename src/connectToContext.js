@@ -1,16 +1,16 @@
 import React, { useContext } from 'react'
 
-import ConnectedComponent from './ConnectedComponent'
+import ContextConnectedComponent from './ContextConnectedComponent'
 
-export default function connectToContextStore(Context, mapContextToProps) {
-  return function contextStoreConnector(Component) {
-    return function ContextStoreConnection(props) {
+export function connectToContext(Context, mapContextToProps) {
+  return function contextConnector(Component) {
+    return function ContextConnection(props) {
       const contextValues = useContext(Context)
       const contextProps = mapContextToProps(contextValues, props)
 
       /* eslint-disable react/jsx-props-no-spreading */
       return (
-        <ConnectedComponent
+        <ContextConnectedComponent
           Component={Component}
           {...contextProps}
           {...props}

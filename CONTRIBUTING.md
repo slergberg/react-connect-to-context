@@ -2,24 +2,24 @@
 
 We are open to, and grateful for, any contributions made by the community. By
 contributing to this library, you agree to abide by the
-[code of conduct](https://github.com/slergberg/react-context-store/blob/master/CODE_OF_CONDUCT.md).
+[code of conduct](https://github.com/slergberg/react-hoc-connect-to-context/blob/master/CODE_OF_CONDUCT.md).
 
 ## Reporting Issues and Asking Questions
 
 Before opening an issue, please search the
-[issue tracker](https://github.com/slergberg/react-context-store/issues) to make
-sure your issue hasn't already been reported.
+[issue tracker](https://github.com/slergberg/react-hoc-connect-to-context/issues)
+to make sure your issue hasn't already been reported.
 
 ## Development
 
 Visit the
-[issue tracker](https://github.com/slergberg/react-context-store/issues) to find
-a list of open issues that need attention.
+[issue tracker](https://github.com/slergberg/react-hoc-connect-to-context/issues)
+to find a list of open issues that need attention.
 
 Fork, then clone the repo:
 
 ```
-git clone https://github.com/your-username/react-context-store.git
+git clone https://github.com/your-username/react-hoc-connect-to-context.git
 ```
 
 ### Building
@@ -79,7 +79,7 @@ that we won't want to accept.
 ## Submitting Changes
 
 - Open a new issue in the
-  [Issue tracker](https://github.com/slergberg/react-context-store/issues).
+  [Issue tracker](https://github.com/slergberg/react-hoc-connect-to-context/issues).
 - Fork the repo.
 - Create a new feature branch based off the `master` branch.
 - Make sure all tests pass and there are no linting errors.

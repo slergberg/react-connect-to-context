@@ -1,9 +1,10 @@
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import nodeResolve from 'rollup-plugin-node-resolve'
-import replace from 'rollup-plugin-replace'
 import visualizer from 'rollup-plugin-visualizer'
 import { terser } from 'rollup-plugin-terser'
+
+import replace from '@rollup/plugin-replace'
 
 import packageDefinition from './package.json'
 
@@ -14,7 +15,7 @@ const config = {
   external: Object.keys(packageDefinition.peerDependencies || {}),
   output: {
     format: 'umd',
-    name: 'ReactContextStore',
+    name: 'ReactHOCConnectToContext',
     globals: {
       react: 'React',
     },
