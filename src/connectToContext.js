@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import ContextConnectedComponent from './ContextConnectedComponent'
 
-export function connectToContext(Context, mapContextToProps) {
+export function connectToContext(Context, mapContextToProps = (c) => c) {
   return function contextConnector(Component) {
     return function ContextConnection(props) {
       const contextValues = useContext(Context)
