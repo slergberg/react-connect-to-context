@@ -5,7 +5,7 @@ import { mount } from 'enzyme'
 import ContextConnectedComponent from '../src/ContextConnectedComponent'
 import { connectToContext } from '../src'
 
-const testContextValue = { foo: 'bar' }
+const testContextValue = { foo: 'bar', baz: 'baz' }
 
 const TestContext = createContext(testContextValue)
 const TestContextProvider = TestContext.Provider
@@ -18,18 +18,19 @@ TestComponent.propTypes = {
   foo: PropTypes.string.isRequired,
 }
 
-function mapTestContextToProps(context) {
-  return {
-    foo: context.foo,
+function TestContainer(props) {
+  const { contextMapper, value } = props
+
+  let ConnectedTestComponent
+  if (contextMapper) {
+    ConnectedTestComponent = connectToContext(
+      TestContext,
+      contextMapper,
+    )(TestComponent)
+  } else {
+    ConnectedTestComponent = connectToContext(TestContext)(TestComponent)
   }
-}
 
-const ConnectedTestComponent = connectToContext(
-  TestContext,
-  mapTestContextToProps,
-)(TestComponent)
-
-function TestContainer({ value }) {
   return (
     <TestContextProvider value={value}>
       <ConnectedTestComponent />
@@ -38,16 +39,43 @@ function TestContainer({ value }) {
 }
 
 TestContainer.propTypes = {
+  contextMapper: PropTypes.func,
   value: PropTypes.objectOf(PropTypes.any).isRequired,
 }
 
 describe('connectToContext', () => {
-  it('should map context values to props and memoize component', () => {
+  it('should map all context values to props and memoize', () => {
+    const contextConnectedComponent = (
+      <ContextConnectedComponent
+        Component={TestComponent}
+        foo="bar"
+        baz="baz"
+      />
+    )
+
+    const wrapper = mount(<TestContainer value={testContextValue} />)
+    expect(wrapper.contains(contextConnectedComponent)).toEqual(true)
+
+    const divComponent = <div>bar</div>
+
+    const testComponentWrapper = wrapper.find(TestComponent)
+    expect(testComponentWrapper.props().foo).toEqual('bar')
+    expect(testComponentWrapper.props().baz).toEqual('baz')
+    expect(testComponentWrapper.contains(divComponent)).toEqual(true)
+  })
+
+  it('should map specific context values to props and memoize', () => {
+    const contextMapper = (context) => ({
+      foo: context.foo,
+    })
+
     const contextConnectedComponent = (
       <ContextConnectedComponent Component={TestComponent} foo="bar" />
     )
 
-    const wrapper = mount(<TestContainer value={testContextValue} />)
+    const wrapper = mount(
+      <TestContainer contextMapper={contextMapper} value={testContextValue} />,
+    )
     expect(wrapper.contains(contextConnectedComponent)).toEqual(true)
 
     const divComponent = <div>bar</div>
