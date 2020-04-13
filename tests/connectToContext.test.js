@@ -2,8 +2,7 @@ import PropTypes from 'prop-types'
 import React, { createContext } from 'react'
 import { mount } from 'enzyme'
 
-import ContextConnectedComponent from '../src/ContextConnectedComponent'
-import { connectToContext } from '../src'
+import connectToContext, { ContextConnectedComponent } from '../src'
 
 const testContextValue = { foo: 'bar', baz: 'baz' }
 
